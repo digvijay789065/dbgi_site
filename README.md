@@ -1,4 +1,4 @@
-# DBGI Saharanpur - Official Website
+# DBGI Saharanpur - Prototype Website
 
 A modern, responsive website for Dev Bhoomi Group of Institutions (DBGI), Saharanpur campus. Built with HTML5, CSS3, and vanilla JavaScript.
 
