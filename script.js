@@ -1,164 +1,139 @@
 // Mobile Menu Toggle
 const mobileMenu = document.querySelector(".mobile-menu");
 const navLinks = document.querySelector(".nav-links");
+const searchContainer = document.querySelector(".search-container");
 
 mobileMenu.addEventListener("click", () => {
-  navLinks.classList.toggle("active");
+    navLinks.classList.toggle("active");
+    searchContainer.classList.toggle("active");
 });
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll(".nav-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("active");
-  });
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        searchContainer.classList.remove("active");
+    });
+});
+
+// Notice Board Slider - 3 sections rotating every 6 seconds
+const noticeSlides = document.querySelectorAll(".notice-slide");
+const noticeDots = document.querySelectorAll(".notice .dot");
+let currentNoticeSlide = 0;
+
+function showNoticeSlide(n) {
+    noticeSlides.forEach((slide) => slide.classList.remove("active"));
+    noticeDots.forEach((dot) => dot.classList.remove("active"));
+
+    currentNoticeSlide = (n + noticeSlides.length) % noticeSlides.length;
+    noticeSlides[currentNoticeSlide].classList.add("active");
+    noticeDots[currentNoticeSlide].classList.add("active");
+}
+
+// Auto advance notice slides every 6 seconds
+setInterval(() => {
+    showNoticeSlide(currentNoticeSlide + 1);
+}, 6000);
+
+// Dot click events for notice board
+noticeDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        showNoticeSlide(index);
+    });
 });
 
 // Testimonial Slider
-const slides = document.querySelectorAll(".testimonial-slide");
-const dots = document.querySelectorAll(".dot");
-let currentSlide = 0;
+const testimonialSlides = document.querySelectorAll(".testimonial-slide");
+const testimonialDots = document.querySelectorAll(".testimonials .dot");
+let currentTestimonialSlide = 0;
 
-function showSlide(n) {
-  slides.forEach((slide) => slide.classList.remove("active"));
-  dots.forEach((dot) => dot.classList.remove("active"));
+function showTestimonialSlide(n) {
+    testimonialSlides.forEach((slide) => slide.classList.remove("active"));
+    testimonialDots.forEach((dot) => dot.classList.remove("active"));
 
-  currentSlide = (n + slides.length) % slides.length;
-
-  slides[currentSlide].classList.add("active");
-  dots[currentSlide].classList.add("active");
+    currentTestimonialSlide = (n + testimonialSlides.length) % testimonialSlides.length;
+    testimonialSlides[currentTestimonialSlide].classList.add("active");
+    testimonialDots[currentTestimonialSlide].classList.add("active");
 }
 
-// Auto advance slides
+// Auto advance testimonial slides
 setInterval(() => {
-  showSlide(currentSlide + 1);
-}, 6000);
+    showTestimonialSlide(currentTestimonialSlide + 1);
+}, 5000);
 
-// Dot click events
-dots.forEach((dot, index) => {
-  dot.addEventListener("click", () => {
-    showSlide(index);
-  });
+// Dot click events for testimonials
+testimonialDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        showTestimonialSlide(index);
+    });
 });
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+    anchor.addEventListener("click", function (e) {
+        e.preventDefault();
 
-    const targetId = this.getAttribute("href");
-    if (targetId === "#") return;
+        const targetId = this.getAttribute("href");
+        if (targetId === "#") return;
 
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop - 80,
-        behavior: "smooth",
-      });
-    }
-  });
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+            });
+        }
+    });
 });
 
 // Header background on scroll
 window.addEventListener("scroll", () => {
-  const header = document.querySelector("header");
-  if (window.scrollY > 100) {
-    header.style.background = "linear-gradient(135deg, rgba(255, 210, 0, 0.3), rgba(254, 11, 0, 0.3))";
-    header.style.backdropFilter = "blur(5px)";
-  } else {
-    header.style.background = "linear-gradient(135deg, rgb(255, 210, 0), rgb(254, 11, 0))";
-    header.style.backdropFilter = "none";
-  }
+    const header = document.querySelector("header");
+    if (window.scrollY > 100) {
+        header.style.background = "linear-gradient(135deg, rgba(255, 210, 0, 0.3), rgba(254, 11, 0, 0.3))";
+        header.style.backdropFilter = "blur(5px)";
+    } else {
+        header.style.background = "linear-gradient(135deg, rgb(255, 210, 0), rgb(254, 11, 0))";
+        header.style.backdropFilter = "none";
+    }
 });
 
-
-//animation for stats
-
-// Function to check if element is in viewport
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-// Function to animate counting
-function animateCount(element, finalValue, duration = 2000) {
-    let start = 0;
-    const increment = finalValue / (duration / 16); // 60fps
-    const timer = setInterval(() => {
-        start += increment;
-        if (start >= finalValue) {
-            element.textContent = formatFinalValue(finalValue, element.getAttribute('data-final'));
-            clearInterval(timer);
-        } else {
-            element.textContent = formatFinalValue(Math.floor(start), element.getAttribute('data-final'));
-        }
-    }, 16);
-}
-
-// Format numbers during counting animation
-function formatFinalValue(value, originalText) {
-    if (originalText.includes('%')) {
-        return Math.floor(value) + '%';
-    } else if (originalText.includes('L')) {
-        // For package - show in lacs during counting
-        const lacsValue = (value / 100000).toFixed(1);
-        return lacsValue.endsWith('.0') ? lacsValue.split('.')[0] + 'L' : lacsValue + 'L';
-    } else if (originalText.includes('+')) {
-        return value.toLocaleString() + '+';
-    } else {
-        return value.toLocaleString();
-    }
-}
-
-// Handle special cases for percentages and package
-function getFinalValue(statNumber) {
-    const text = statNumber.textContent;
-    
-    if (text.includes('%')) {
-        return parseInt(text);
-    } else if (text.includes('L')) {
-        // Convert lacs to actual number for counting
-        return parseFloat(text.replace('L', '')) * 100000;
-    } else {
-        return parseInt(text.replace(/,/g, ''));
-    }
-}
-
-// Main function to initialize counting animation
-function initCountAnimation() {
+// Stats Counter Animation
+function animateStats() {
     const statNumbers = document.querySelectorAll('.stat-number');
-    const animatedElements = new Set(); // Track which elements have been animated
     
-    function checkAndAnimate() {
-        statNumbers.forEach(statNumber => {
-            if (isInViewport(statNumber) && !animatedElements.has(statNumber)) {
-                animatedElements.add(statNumber);
-                
-                const originalText = statNumber.textContent;
-                const finalValue = getFinalValue(statNumber);
-                
-                // Store original text in data attribute
-                statNumber.setAttribute('data-final', originalText);
-                
-                // Start counting animation
-                animateCount(statNumber, finalValue, 1500);
+    statNumbers.forEach(stat => {
+        const finalValue = stat.getAttribute('data-final');
+        let current = 0;
+        const duration = 5000;
+        const increment = finalValue.includes('+') || finalValue.includes('%') || finalValue.includes('L') 
+            ? 1 
+            : parseInt(finalValue.replace(/[+,]/g, '')) / (duration / 16);
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= parseInt(finalValue.replace(/[+,%L]/g, ''))) {
+                stat.textContent = finalValue;
+                clearInterval(timer);
+            } else {
+                stat.textContent = Math.floor(current) + (finalValue.includes('+') ? '+' : '');
+            }
+        }, 16);
+    });
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Trigger stats animation when stats section is in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStats();
+                observer.unobserve(entry.target);
             }
         });
-    }
-    
-    // Check on scroll and resize
-    window.addEventListener('scroll', checkAndAnimate);
-    window.addEventListener('resize', checkAndAnimate);
-    
-    // Initial check
-    checkAndAnimate();
-}
+    });
 
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initCountAnimation();
+    observer.observe(document.querySelector('.stats-section'));
 });
+
