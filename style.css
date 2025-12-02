@@ -11,7 +11,7 @@
   --secondary: #e53e3e;
   --accent: #38b2ac;
   --light: #f7fafc;
-  --dark: #2d3748;
+  --dark: #272c35;
   --transition: all 0.3s ease;
 }
 
@@ -797,7 +797,7 @@ header {
 
 /* Footer */
 footer {
-  background: var(--dark);
+  background: var(--dark  );
   color: white;
   padding: 60px 0 20px;
 }
@@ -941,10 +941,6 @@ footer {
     height: 2rem;
     width: 2rem;
     margin-right: 5px;
-  }
-  
-  .search-container {
-    /* display: none !important; */
   }
   
   .nav-links {

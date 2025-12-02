@@ -15,7 +15,9 @@
             button.addEventListener('click', function(e) {
                 if (this.innerHTML.includes('fa-eye')) {
                     e.preventDefault();
-                    const pdfTitle = this.closest('.pdf-content').querySelector('h3').textContent;
+                    const pdfContent = this.closest('.pdf-content');
+                    if (!pdfContent) return;
+                    const pdfTitle = pdfContent.querySelector('h3').textContent;
                     alert(`This would open a PDF viewer for: ${pdfTitle}\n\nIn a real implementation, this would display the PDF using a viewer component.`);
                 }
             });

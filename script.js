@@ -103,7 +103,7 @@ function animateStats() {
     const statNumbers = document.querySelectorAll('.stat-number');
     
     statNumbers.forEach(stat => {
-        const finalValue = stat.getAttribute('data-final');
+        const finalValue = (stat.getAttribute('data-final') || stat.textContent).trim();
         let current = 0;
         const duration = 5000;
         const increment = finalValue.includes('+') || finalValue.includes('%') || finalValue.includes('L') 
