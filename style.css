@@ -252,7 +252,7 @@ header {
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.55)),
-    url("images/campus_2.png");
+    url("/images/hero-image.webp");
   background-size: cover;
   background-position: center;
   color: white;
