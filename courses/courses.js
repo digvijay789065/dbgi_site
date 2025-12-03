@@ -58,8 +58,8 @@ function initializeTabSystem() {
   const tabButtons = document.querySelectorAll(".tab-btn");
   const tabContents = document.querySelectorAll(".institution-content");
 
-  // Set initial active tab (Engineering)
-  setActiveTab("engineering");
+  // Set initial active tab (Engineering) without scrolling on load
+  setActiveTab("engineering", false);
 
   // Add click event listeners to all tab buttons
   tabButtons.forEach((button) => {
@@ -73,7 +73,7 @@ function initializeTabSystem() {
    * Set active tab and show corresponding content
    * @param {string} tabId - The ID of the tab to activate
    */
-  function setActiveTab(tabId) {
+  function setActiveTab(tabId, doScroll = true) {
     // Remove active class from all buttons and contents
     tabButtons.forEach((btn) => {
       btn.classList.remove("active");
@@ -95,12 +95,14 @@ function initializeTabSystem() {
     if (activeContent) {
       activeContent.classList.add("active");
 
-      // Add smooth scroll to tab content
-      activeContent.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest",
-      });
+      // Optionally scroll to tab content (disabled on initial load)
+      if (doScroll) {
+        activeContent.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      }
     }
   }
 }
