@@ -1,10 +1,12 @@
-# DBGI Saharanpur - Website Prototype Project
+# DBGI Saharanpur - Official Website
 
-A modern, responsive website prototype for Dev Bhoomi Group of Institutions (DBGI), Saharanpur campus. This is a personal project built with HTML5, CSS3, and vanilla JavaScript to demonstrate web development skills.
+The official website for Dev Bhoomi Group of Institutions (DBGI), Saharanpur campus. A modern, responsive website built with HTML5, CSS3, and vanilla JavaScript.
+
+**🌐 Live Website**: [https://dbgi.in](https://dbgi.in)
 
 ## 🎯 Project Overview
 
-This project showcases a complete website prototype for an educational institution, featuring modern design principles, responsive layout, and interactive elements. It serves as a demonstration of front-end development capabilities.
+The complete website for an educational institution, featuring modern design principles, responsive layout, and interactive elements. The site showcases institutional information, academic programs, placements, campus life, and career opportunities.
 
 ## ✨ Features
 
@@ -30,27 +32,35 @@ dbgi-site/
 ├── index.html                 # Main homepage
 ├── style.css                  # Main stylesheet
 ├── script.js                  # JavaScript functionality
-├── logo.png                   # Institution logo
-├── campus_1.png              # Campus image for about section
-├── campus_2.png              # Hero background image
-├── courses_images_index_page/ # Course program images
-│   ├── engineering.webp
-│   ├── business.png
-│   └── pharmacy.webp
-├── campus_life/               # Campus activities images
-│   ├── sports.jpg
-│   ├── almuni.webp
-│   ├── fresher.jpeg
-│   ├── industrial_visit.webp
-│   ├── tvaran.png
-│   ├── job_fair.png
-│   ├── trip.jpg
-│   ├── girls_competition.jpeg
-│   └── nukkad_play.jpg
-├── about/                     # About section pages
-├── admission_form/            # Admission related pages
-├── academics/                 # Academic information pages
-└── README.md                  # Project documentation
+├── README.md                  # Project documentation
+├── images/                    # Images and assets
+│   ├── logo.png              # Institution logo
+│   ├── hero-image.webp       # Hero background
+│   ├── campus_1.png          # Campus images
+│   ├── campus_2.png
+│   ├── chariman.webp
+│   ├── managing_director.webp
+│   └── director_sir.webp
+├── about/                     # About Us pages
+│   ├── about.html
+│   ├── about.css
+│   └── about.js
+├── admission_form/            # Admissions pages
+│   ├── admission.html
+│   ├── admission.css
+│   └── admission.js
+├── courses/                   # Academic Programs
+│   ├── courses.html
+│   ├── courses.css
+│   ├── courses.js
+│   └── courses_details/
+├── academics/                 # Academic information
+├── placements/                # Placements section
+├── career/                    # Career opportunities
+├── campus_life/               # Campus activities
+├── contact/                   # Contact pages
+├── pdf_gallery/               # Document gallery
+└── courses_images/            # Course program images
 ```
 
 ## 🎯 Key Sections
@@ -126,8 +136,10 @@ dbgi-site/
 - Photo gallery with lightbox functionality
 - Blog section with comment system
 - Multi-language support
-- SEO optimization
+- Advanced SEO optimization
 - Performance improvements with lazy loading
+- Mobile app development
+- Analytics and reporting dashboard
 
 ## 🐛 Known Issues & Limitations
 
@@ -159,4 +171,8 @@ Through this project, I've practiced:
 
 ---
 
-**Personal Project** 
+**Official Website for Dev Bhoomi Group of Institutions**
+
+**Website**: [https://dbgi.in](https://dbgi.in)  
+**Contact**: dbgi@dbgisre.edu.in  
+**Phone**: 9568775222, 9568776222 

@@ -98,14 +98,14 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// Stats Counter Animation
+/// Stats Counter Animation - Faster Version
 function animateStats() {
     const statNumbers = document.querySelectorAll('.stat-number');
     
     statNumbers.forEach(stat => {
         const finalValue = (stat.getAttribute('data-final') || stat.textContent).trim();
         let current = 0;
-        const duration = 5000;
+        const duration = 1200; // Reduced from 2500ms to 1200ms (faster)
         const increment = finalValue.includes('+') || finalValue.includes('%') || finalValue.includes('L') 
             ? 1 
             : parseInt(finalValue.replace(/[+,]/g, '')) / (duration / 16);
@@ -134,60 +134,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    observer.observe(document.querySelector('.stats-section'));
-});
-
-// Map loading functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const mapFrame = document.getElementById('campusMap');
-    const mapLoading = document.getElementById('mapLoading');
-    
-    // Hide loading overlay when map is loaded
-    mapFrame.addEventListener('load', function() {
-        this.classList.add('loaded');
-        mapLoading.style.opacity = '0';
-        setTimeout(() => {
-            mapLoading.style.display = 'none';
-        }, 500);
-    });
-    
-    // Fallback - hide loading after 3 seconds
-    setTimeout(() => {
-        mapFrame.classList.add('loaded');
-        mapLoading.style.opacity = '0';
-        setTimeout(() => {
-            mapLoading.style.display = 'none';
-        }, 500);
-    }, 3000);
-});
-
-// Copy address to clipboard
-function copyAddress() {
-    const address = `DBGI\nMilestone Dabki Road\nVillage Beri Jamapur\nSaharanpur, Uttar Pradesh 247001`;
-    
-    navigator.clipboard.writeText(address).then(() => {
-        alert('Address copied to clipboard!');
-    }).catch(err => {
-        console.error('Failed to copy: ', err);
-        // Fallback for older browsers
-        const textArea = document.createElement('textarea');
-        textArea.value = address;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        alert('Address copied to clipboard!');
-    });
-}
-
-// Get directions function
-function getDirections() {
-    const address = encodeURIComponent('DBGI, Milestone Dabki Road, Village Beri Jamapur, Saharanpur, Uttar Pradesh 247001');
-    window.open(`https://www.google.com/maps/dir/?api=1&destination=${address}`, '_blank');
-}
-
-// Street View function
-function openStreetView() {
-    const coords = '29.943717404100834, 77.60921494087196'; // Replace with actual coordinates
-    window.open(`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${coords}`, '_blank');
-}
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+        observer.observe(statsSection);
+    }
+})

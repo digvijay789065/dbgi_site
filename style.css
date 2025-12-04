@@ -615,87 +615,87 @@ header {
 
 /* Add your campus card background images here */
 #sports {
-  background-image: url("campus_life/sports.jpg");
+  background-image: url("campus_life/sports.webp");
   background-size: cover;
 }
 #alumni {
-  background-image: url("campus_life/almuni.jpg");
+  background-image: url("campus_life/almuni.webp");
   background-size: cover;
 }
 #fresher {
-  background-image: url("campus_life/fresher.jpeg");
+  background-image: url("campus_life/fresher.webp");
   background-size: cover;
 }
 #industry_visit {
-  background-image: url("campus_life/industrial_visit.jpg");
+  background-image: url("campus_life/industrial_visit.webp");
   background-size: cover;
 }
 #tvaran {
-  background-image: url("campus_life/tvaran.png");
+  background-image: url("campus_life/tvaran.webp");
   background-size: cover;
 }
 #job {
-  background-image: url("campus_life/job_fair.png");
+  background-image: url("campus_life/job_fair.webp");
   background-size: cover;
 }
 #trip {
-  background-image: url("campus_life/trip.jpg");
+  background-image: url("campus_life/trip.webp");
   background-size: cover;
 }
 #girl_game {
-  background-image: url("campus_life/girls_competition.jpeg");
+  background-image: url("campus_life/girls_competition.webp");
   background-size: cover;
 }
 #play {
-  background-image: url("campus_life/nukkad_play.jpg");
+  background-image: url("campus_life/nukkad_play.webp");
   background-size: cover;
 }
 #star_night {
-  background-image: url("campus_life/star_night.jpg");
+  background-image: url("campus_life/star_night.webp");
   background-size: cover;
 }
 #women_empower {
-  background-image: url("campus_life/women_empowerment.jpg");
+  background-image: url("campus_life/women_empowerment.webp");
   background-size: cover;
 }
 #farewell {
-  background-image: url("campus_life/farewell_party.jpg");
+  background-image: url("campus_life/farewell_party.webp");
   background-size: cover;
 }
 #winners {
-  background-image: url("campus_life/winners.jpg");
+  background-image: url("campus_life/winners.webp");
   background-size: cover;
 }
 #guest_visit {
-  background-image: url("campus_life/guests.jpg");
+  background-image: url("campus_life/guests.webp");
   background-size: cover;
 }
 #jagrukta {
-  background-image: url("campus_life/jagrukta_karyakram.jpg");
+  background-image: url("campus_life/jagrukta_karyakram.webp");
   background-size: cover;
 }
 #seminar {
-  background-image: url("campus_life/seminars.png");
+  background-image: url("campus_life/seminars.webp");
   background-size: cover;
 }
 #supportive_faculty {
-  background-image: url("campus_life/supportive_faculty.jpeg");
+  background-image: url("campus_life/supportive_faculty.webp");
   background-size: cover;
 }
 #yoga {
-  background-image: url("campus_life/yoga.jpg");
+  background-image: url("campus_life/yoga.webp");
   background-size: cover;
 }
 #lovely_faculty {
-  background-image: url("campus_life/lovely_faculty.png");
+  background-image: url("campus_life/lovely_faculty.webp");
   background-size: cover;
 }
 #parents_felicitation {
-  background-image: url("campus_life/parents_felicitation_ceremoney.jpg");
+  background-image: url("campus_life/parents_felicitation_ceremoney.webp");
   background-size: cover;
 }
 #moot_court {
-  background-image: url("campus_life/moot_court_competition.png");
+  background-image: url("campus_life/moot_court_competition.webp");
   background-size: cover;
 }
 
@@ -1020,64 +1020,127 @@ footer {
   /* About Section */
 .about-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
 }
+
 .about-text {
   flex: 1;
+  order: 1;
+  width: 100%;
+  text-align: center;
 }
 
 .about-text h3 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--primary);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
-  .about-image {
+
+.about-text p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.about-image {
   flex: 1;
+  order: 2;
+  width: 100%;
   border-radius: 10px;
-  overflow: hidden;  
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .about-image img {
   width: 100%;
   height: auto;
   display: block;
-  transition: var(--transition);
 }
   
   /* Notice Board Fix */
   .notice {
-    width: 90vw;
-    margin: 0 auto 3rem;
-    height: 50vh;
-    min-height: 350px;
+    width: 95vw;
+    margin: 0 auto 2rem;
+    height: auto;
+    min-height: 300px;
     border-radius: 1rem;
+    padding: 20px;
+  }
+  
+  .notice-slide {
+    height: 300px;
+  }
+  
+  .notice-content {
+    padding: 20px;
   }
   
   .notice-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   
   .notice-content p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   /* Campus Grid Fix */
   .campus-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+    padding: 0 15px;
   }
   
   .campus-card {
     width: 100%;
-    height: 200px;
-    margin: 0 auto;
+    height: 250px;
+    margin: 0;
   }
   
   .campus-card h3 {
-    margin-top: 150px;
-    font-size: 1.3rem;
+    margin-top: 180px;
+    font-size: 1.2rem;
+  }
+  
+  /* Testimonials Fix */
+  .testimonials {
+    height: auto;
+    width: 95vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    padding: 30px 20px;
+  }
+  
+  .testimonials .section-title h2 {
+    font-size: 1.8rem;
+  }
+  
+  .testimonials .section-title p {
+    font-size: 0.95rem;
+  }
+  
+  .testimonial-slider {
+    max-width: 100%;
+  }
+  
+  .testimonial-slide {
+    padding: 20px;
+  }
+  
+  .testimonial-content {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .testimonial-author {
+    font-size: 1rem;
+  }
+  
+  .testimonial-role {
+    font-size: 0.85rem;
   }
   
   /* Stats Section Fix */
@@ -1091,11 +1154,11 @@ footer {
   }
   
   .stat-number {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .stat-label {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -1150,10 +1213,17 @@ footer {
   }
   
   /* Notice Board */
-  .notice {
-    height: 45vh;
-    min-height: 300px;
-  }
+.notice {
+  width: 95%;
+  margin: 0 auto 2rem;
+  padding: 20px;
+  border-radius: 1rem;
+  height: auto;
+}
+.notice-slide {
+  height: auto;
+}
+
   
   .notice-content h3 {
     font-size: 1.3rem;
@@ -1181,17 +1251,49 @@ footer {
   
   /* Testimonials */
   .testimonials {
-    width: 90vw;
-    margin: 0 auto 3rem;
-    height: 50vh;
+    width: 95%;
+    margin: 0;
+    padding: 30px 20px;
+    height: auto;
     min-height: 350px;
     border-radius: 1rem;
   }
-  
+  .testimonial-slide {
+  height: auto;
+}
   .testimonial-content {
     font-size: 1rem;
   }
   
+  /* Campus Life */
+  .campus-life .container {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.campus-grid {
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.campus-card {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.campus-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.campus-card h3 {
+  display: none;
+}
+
   /* Footer */
   .footer-content {
     grid-template-columns: 1fr;
@@ -1210,9 +1312,17 @@ footer {
     height: 55vh;
   }
   
-  .notice {
-    height: 40vh;
-  }
+.notice {
+  width: 95%;
+  margin: 0 auto 2rem;
+  padding: 20px;
+  border-radius: 1rem;
+  height: auto;
+}
+.notice-slide {
+  height: auto;
+}
+
   
   .campus-card {
     height: 180px;
@@ -1248,5 +1358,35 @@ footer {
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   .logo img {
     image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Global FIXES */
+* {
+  box-sizing: border-box;
+}
+
+section {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Force responsiveness on all phones */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .notice,
+  .campus-life,
+  .testimonials {
+    width: 100%;
   }
 }

@@ -428,7 +428,7 @@ header {
 
 /* Stats Section */
 .stats {
-  background: linear-gradient(rgba(0, 0, 255, 0.35), rgba(0, 0, 255, 0.95));
+  background: linear-gradient(rgba(0, 0, 255, 0.75), rgba(0, 0, 255, 0.95));
   background-size: cover;
   background-position: center;
   color: white;

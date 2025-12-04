@@ -259,7 +259,7 @@ header {
     height: calc(100vh - 80px);
     min-height: 500px;
     background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.55)),
-                url('/images/campus_2.png');
+                url('/images/campus_2.webp');
     background-size: cover;
     background-position: center;
     color: white;
